@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css'%}" />
+</head>
+<body>
+
+    <div style="margin: 10px auto; width: 90%; ">
+
+       <h3 style="text-align: center;">Employees Management System</h3>
+    </div>
+
+<table style="width:100%; text-align: center; border: 1px solid black;">
+
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Job</th>
+    <th>Salary</th>
+
+
+
+  </tr>
+    {% for employee in employees %}  
+
+       <tr>
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.email }}</td>
+          <td>{{ employee.job }}</td>
+          <td>{{ employee.salary}}</td>
+          <td><a class="edit-button" href="{% url 'editEmployeeForm' employee.id %}">Edit</a></td>
+          <td><a class="delete-button" href="{% url 'deleteEmployee' employee.id %}">Delete</a></td>
+        </tr>
+    {% endfor %}
+
+
+
+</body>
+</html>

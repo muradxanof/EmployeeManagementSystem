@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css'%}" />
+</head>
+<body>
+    <form method="POST" action="{% url 'createEmployee' %}">
+
+    {% csrf_token %}
+      <h1 style="text-align: center;">Create Employee</h1>
+
+        <div style="margin:10px auto; width: 50%; text-align: center">
+            <label>Name</label>
+            <input type="text" name="name" placeholder="Insert Employee Name"/>
+        </div>
+
+        <div style="margin:10px auto; width: 50%; text-align: center">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Insert Employee email"/>
+        </div>
+
+        <div style="margin:10px auto; width: 50%; text-align: center">
+            <label>Job Title</label>
+            <input type="text" name="job" placeholder="Insert job title"/>
+        </div>
+
+        <div style="margin:10px auto; width: 50%; text-align: center">
+            <label>Salary</label>
+            <input type="number" name="Salary" placeholder="Insert Employee Salary"/>
+        </div>
+
+        <div style="margin:10px auto; width: 50%; text-align: center">
+            <input type="submit" value="create Employee" style="background: blue; color: white;">
+        </div>
+
+    </form>
+</body>
+</html>
